@@ -12,15 +12,15 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcatt(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
 	size_t	src_len;
 
-	src_len = ft_strlen(src);
+	src_len = ft_strlenn(src);
 	j = 0;
-	i = ft_strlen(dst);
+	i = ft_strlenn(dst);
 	if (!dstsize)
 		return (src_len);
 	if (i > dstsize)
@@ -35,7 +35,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	return (i + src_len);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlenn(const char *s)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmovee(void *dst, const void *src, size_t len)
 {
 	int	i;
 

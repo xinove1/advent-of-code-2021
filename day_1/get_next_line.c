@@ -46,7 +46,7 @@ static int	read_to_buffer(char *last, char buffer[], char **s, int fd)
 		i++;
 	*s = append_to_string(*s, buffer, i + 1);
 	if (buffer[i] == '\n' && buffer[i + 1])
-		ft_memmove(last, &buffer[i + 1], BUFFER_SIZE - i);
+		ft_memmovee(last, &buffer[i + 1], BUFFER_SIZE - i);
 	if (buffer[i] == '\n')
 		return (0);
 	return (1);
@@ -64,7 +64,7 @@ static int	process_last(char **s, char last[])
 	*s = append_to_string(*s, last, i + 1);
 	if (last[i] == '\n' && last[i + 1])
 	{
-		ft_memmove(last, &last[i + 1], ft_strlen(last) - i);
+		ft_memmovee(last, &last[i + 1], ft_strlenn(last) - i);
 		flag = 1;
 	}
 	else if (last[i] == '\n')
@@ -92,14 +92,14 @@ static char	*append_to_string(char *s, char *src, int src_size)
 	}
 	else
 	{
-		i = ft_strlen(s);
+		i = ft_strlenn(s);
 		tmp = malloc(i + src_size + 1);
 		if (!tmp)
 			return (NULL);
 		tmp[0] = '\0';
-		ft_strlcat(tmp, s, i + src_size + 1);
+		ft_strlcatt(tmp, s, i + src_size + 1);
 		free(s);
 	}
-	ft_strlcat(tmp, src, i + src_size + 1);
+	ft_strlcatt(tmp, src, i + src_size + 1);
 	return (tmp);
 }
